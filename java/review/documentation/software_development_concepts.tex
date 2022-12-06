@@ -1,0 +1,286 @@
+\documentclass{article}
+
+\usepackage[dvisvgm, usenames, dvipsnames]{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{etoolbox}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier} 
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{array, caption, tabularx,  ragged2e,  booktabs}
+\usepackage{amsmath} % for the equation* environment
+\usepackage{bookmark}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\graphicspath{ {./image/} }
+
+\preto{\section}{\clearpageafterfirst}
+\preto{\subsection}{\filbreak}
+\newcommand{\clearpageafterfirst}{%
+  \gdef\clearpageafterfirst{\clearpage}%
+}
+
+\title{Software Development}
+\author{Michael Rao}
+\date{2022-04-04}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Principals of Object Oriented Programming}
+
+	Java will be the language of choice for the OOP Principals
+
+	\subsection{Abstraction}
+
+		Abstraction is the idea of reducing objects to its essence. In Java, this is achieved through \textbf{interfaces} and \textbf{abstract classes}
+	\begin{verbatim}
+		Interface:
+		* 100% abstraction
+		* Implemented using the "implements" keyword
+		* Interface can extend another Interface using keyword "extends"
+		* Class can implement multiple interfaces
+		* All variables declared are final
+
+		Abstract Class:
+		* Not full abstraction as it allows Concrete Methods
+		* Can have Abstract Methods that are declared without implementation
+		* Can have both Abstract Methods and Concrete Methods
+		* No Objects allowed in Abstract Class
+		* Class can extend only one abstract Class
+		* Can have variables that are not final
+	\end{verbatim}
+	\subsection{Encapsulation}
+
+		Encapsulation is the idea of information hiding. In Java, this is achieved through Mutators and Accessors and using Access Modifiers like \textbf{Public}, \textbf{Private} and \textbf{Protected}. 
+	
+	\subsection{Inheritance}
+	
+		Inheritance in Java is when you extend from one class to another, allowing for the subclass to inherit all the methods in the parent class. This code design methodology provides great code re-usability and opens the door to Dynamic Polymorphism. 
+	
+	\subsection{Polymorphism}
+	
+		Polymorphism in Java is the concept where one method can take multiple forms. From the idea of inheritance, overriding a method in the subclass allows it to be polymorphic to the parent class.
+		
+		\paragraph{}
+		
+		Java allows multiple polymorphism but not for \textbf{Dynamic Polymorphism}, e.g. overriding. Multiple polymorphism is allowed only for \textbf{Static Polymorphism}, e.g. overloading. Dynamic = Run-Time. Static = Compile-Time. 
+
+\section{Data Structure Space and Time Complexity}
+
+\includegraphics[width=\textwidth]{../../image/data_structure_big_o}
+
+\subsection{Hashmap}
+
+\subsubsection{Why O\((n)\) worst case?}
+
+\paragraph{}
+
+	\textbf{Hashmaps} are dependent on \textbf{Hash Functions} to determine how efficient they are. 
+	
+\paragraph{}	
+	
+	For example, if we have a Hash Function as follows: \(f(x)=1\) where \(x\) is the input value and right side of the equation is position to store \(x\). This will cause the \textbf{Hashmap} to effectively become a \textbf{Linked List}, which would make \textbf{Search, Insert, Delete} into time complexity of O\((n)\).
+
+\section{Conceptual Comparisons}
+
+\subsection{Heap Memory vs Stack Memory}
+
+\noindent\setlength\tabcolsep{4pt}%
+\begin{tabularx}{\linewidth}{|l|*{4}{>{\RaggedRight\arraybackslash}X|}}
+  \hline
+  \# & Stack          & Heap                \\ [0.5ex]
+  \hline
+  1  & Physical space in RAM & Physical space in RAM \\
+  \hline
+  2  & Stores local variables and methods & Stores objects and JRE classes \\
+  \hline
+  3  & Allocated by thread-level at run-time & Global memory shared across all threads \\
+  \hline
+  4  & Memory Allocation taken care of by Compiler & Memory Allocation taken care of by Developer and Garbage Collector \\
+  \hline
+\end{tabularx}
+\vskip1cm
+
+\subsection{Process vs Thread}
+
+\noindent\setlength\tabcolsep{4pt}%
+\begin{tabularx}{\linewidth}{|l|*{4}{>{\RaggedRight\arraybackslash}X|}}
+  \hline
+  \# & Process          & Thread                \\ [0.5ex]
+  \hline
+  1  & Collection of code, memory and other resources that make up a program & sequence of code within a process \\
+  \hline
+  2  & Data is not shared between processes & Shares data and code segments with other threads but each contains its own local registers \\
+  \hline
+  3  & Heavyweight & Lightweight \\
+  \hline
+\end{tabularx}
+\vskip1cm
+
+\subsection{Run-time vs Compile-time}
+
+\noindent\setlength\tabcolsep{4pt}%
+\begin{tabularx}{\linewidth}{|l|*{4}{>{\RaggedRight\arraybackslash}X|}}
+  \hline
+  \# & Compile-Time          & Run-Time                \\ [0.5ex]
+  \hline
+  1  & Period when code is converted to binary & Period when program is running \\
+  \hline
+  2  & Static but Fast (Overloading) & Dynamic but Slower (Overriding) \\
+  \hline
+\end{tabularx}
+\vskip1cm
+
+\subsection{Overload vs Override}
+
+\noindent\setlength\tabcolsep{4pt}%
+\begin{tabularx}{\linewidth}{|l|*{4}{>{\RaggedRight\arraybackslash}X|}}
+  \hline
+  \# & Overload          & Override                 \\ [0.5ex]
+  \hline
+  1  & Same method name with different parameters & Method Signature is same between subclass and parent class \\
+  \hline
+  2  & Used to implement Compile-time Polymorphism & Used to implement Run-time Polymorphism \\
+  \hline
+  3  & Used on constructors to create new Objects given different amounts of data & \\
+  \hline
+\end{tabularx}
+\vskip1cm
+
+\section{Algorithm Comparisons}
+
+\subsection{Merge Sort vs Quick Sort}
+
+\noindent\setlength\tabcolsep{4pt}%
+\begin{tabularx}{\linewidth}{|l|*{4}{>{\RaggedRight\arraybackslash}X|}}
+  \hline
+  \# & Merge Sort          & Quick Sort                 \\ [0.5ex]
+  \hline
+  Big O  & Worst Time Complexity: O\((nlogn)\) & Worst Time Complexity: O\((n^2)\) \\
+  \hline
+  Big O  & Space Complexity: O\((n)\) & Space Complexity: O\((1)\) \\
+  \hline
+  Usage  & Ideal for Arrays & Ideal for Linked Lists \\
+  \hline
+\end{tabularx}
+\vskip1cm
+Merge Sort cannot be worse than O\((nlogn)\) since Merge Sort is not dependent on pivot. 
+
+\paragraph{}
+
+Quick Sort can have worst case of O\((n^2)\) since it is possible the pivot is always the smallest or biggest. 
+
+
+\subsection{Tree Traversals}
+
+\noindent\setlength\tabcolsep{4pt}%
+\begin{tabularx}{\linewidth}{|l|*{4}{>{\RaggedRight\arraybackslash}X|}}
+  \hline
+  \# & Ordering      & Usage           \\ [0.5ex]
+  \hline
+  Inorder &  Left SubTree -> Root -> Right SubTree & Inorder on BST always produces an ascending sorted list \\
+  \hline
+  Preorder & Root -> Left SubTree -> Right SubTree & Used to create copy of tree \& get prefix expression on expression tree\\
+  \hline
+  Postorder & Left SubTree -> Right SubTree -> Root & Used to delete tree \& get postfix expression on expression tree\\
+  \hline
+\end{tabularx}
+\vskip1cm
+
+\subsection{DFS vs BFS}
+
+\noindent\setlength\tabcolsep{4pt}%
+\begin{tabularx}{\linewidth}{|l|*{4}{>{\RaggedRight\arraybackslash}X|}}
+  \hline
+  \# & DFS      & BFS           \\ [0.5ex]
+  \hline
+  Recursive & Can be done & Not possible \\
+  \hline
+  Iterative & Use a Stack & Use a Queue \\
+  \hline
+\end{tabularx}
+\vskip1cm
+
+\section{Behavioral Interview Questions}
+
+\subsection{In your opinion, what are some principles every software engineer should follow?}
+
+\paragraph{}
+
+	Keep things simple and straightforward. Keep your mind to one task at a time, so each task is given the care it deserves. 
+
+
+\subsection{Do you prefer to work alone or with others?}
+
+\paragraph{}
+
+Software Developers exist to solve problems, I typically try to solve them myself first to test my own abilities but always welcome the help of others.  
+
+\subsection{Can you give me an example of how you set goals for yourself?}
+
+\paragraph{}
+
+	As a Software Developer, it is important to constantly grow your skill set and keep that skill set sharp and fresh. When I joined Morgan Stanley, my team's job was to create applications that reduce manual efforts from our clients. So we had Database, Frontend and Middle-Tier. my tasks were to manage the Database, write Stored Procedures. However, at that point in time, my team was also low on Front-end Developers. So I took the opportunity to learn the core code and with my background in Java, I became a backend and frontend developer to ensure my team met deadlines. Not shortly after, my team's Middle-Tier developer went on vacation for 4 weeks, so we were then short on Middle-Tier developers. Again, I took the opportunity to study the basics of the Middle-Tier and became a Full Stack Developer for my team. 
+
+\section{Management Interview Questions}
+
+
+\subsection{Strength and Weaknesses}
+
+\paragraph{}
+
+\begin{itemize}
+	\item \textbf{Weakness} - When I joined Morgan Stanley, one of my biggest weaknesses was my communication. After leading projects, software developers and communicating on a daily basis with business users. I've definitely improved a lot, but I still feel I have a lot of space to improve on communication.
+	\item \textbf{Weakness} - I have an issue working with ambiguity. I have a need to know the ins and outs of a project and the requirements and why the project is necessary and why the requirements are the way they are. 
+	\item \textbf{Strength} - I am a fast learner. I was not attuned with any part of the technology stack used in Morgan Stanley outside of Java and Git and was able to quickly become the go-to senior full-stack developer and leading the team for automation.
+	\item \textbf{Strength} - I am very open to changes. Technology evolves frequently and there are many ways to solve a problem, it's extremely important to keep an open mind.
+\end{itemize}
+
+
+\subsection{What do you expect from a manager?}
+
+\paragraph{}
+
+	My manager at Morgan Stanley was the perfect manager. She was open minded, I always felt comfortable going to her about any concerns regarding the timelines or projects we were working on. She wasn't the most technically skilled person on the team but she was balanced in her knowledge in that she was able to properly communicate to business, technology and management. That is what I expect from a manager. 
+
+
+\subsection{What was it like working for your manager?}
+
+\paragraph{}
+
+	I've yet to have a difficult manager. For my manager at Morgan Stanley, I always went to her with any queries or doubts I had on the time line or the projects. We designed many projects together to ensure maximum efficiency and delivery. We were very open and communicative with each other.  
+
+\subsection{What strategies would you use to motivate your team?}
+
+\paragraph{}
+
+	My manager and I used to go on a weekly coffee break, trying our best to just talk about random things on our mind that normally do not come up during more strenuous situations. In addition, it is important to make sure the developers are as stress-free as possible. The most difficult part of being a Software Developer is not coding but designing and finding the optimal solution to each problem. In order to accomplish that, you can motivate the team by just giving them the space and time they need to optimize their development skills. 
+
+\subsection{How would you address conflicts with another coworker?}
+
+\paragraph{}
+
+	Honestly I have never had any conflicts with any of my coworkers, so I don't really have any firsthand experience. If I was to have some conflict in the future, the most important thing is communication. So first thing would be to just get some time with them and just have an uninterrupted 1-on-1, be patient and listen to their perspective and smooth out any edges and any misunderstandings or any miscommunications. 
+
+\subsection{How would you address productivity issues with your team?}
+
+\paragraph{}
+
+	I believe a software developer under too much stress is an ineffective software developer. Some people perform well under stress and some don't, but you don't take a 50/50 chance when you have deadlines. I'm focusing on stress here because if the productivity issue is stemming from an unfamiliarity with the technology, it can simply be accelerated by having a more senior developer providing some guidelines and pointers and knowledge transfers, etc. But when it comes to stress, it's important to help your team de-stress, the main thing here is again communication. Be open with your team, be transparent, listen to your teammates, provide whatever types of support they need. 
+
+
+\end{document}
