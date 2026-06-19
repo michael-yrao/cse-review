@@ -91,7 +91,7 @@ Best fit if you want to build a company or run engineering at scale.
 
 ## 12-Month Priority List (June 2026 – June 2027)
 
-1. **Resume done** — `resume/MichaelRao_2026_Resume.docx` in this repo is the working copy; finalize when Word is available
+1. **Resume done** — `career/resume/MichaelRao_2026_Resume.docx` in this repo is the working copy; finalize when Word is available
 2. **Have a Staff/Principal level conversation at MS** — the Snowflake/Serenity modernization is your leverage; use it now
 3. **Finish NeetCode 150** — cse-review is your tracker; 5 problems/week gets you there by year-end
 4. **Read Alex Xu every Sunday** — *System Design Interview* Vol 1, one chapter per week, passive reading only; no practice problems yet
