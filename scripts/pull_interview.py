@@ -62,6 +62,24 @@ CATEGORY_TO_TOPICS = {
     "Bit Manipulation": {"Bit Manipulation"},
 }
 
+# ── TODO (expansion phases): EXTEND THIS MAP when the learner starts RETIRING
+# expansion techniques — not before. Post-NC150 the pool is already wide (all
+# NC150 topics); this only matters once advanced techniques are being learned so
+# freshly-retired ones widen the pull pool. Two-part change:
+#   1. Add each expansion solution-folder slug -> technique name in FOLDER_TO_CATEGORY
+#      below (e.g. "segment_tree", "fenwick", "kmp", "suffix_array", ...).
+#   2. Add the technique -> LeetCode topic tags here so pulls gate on it:
+#        "Segment Tree":        {"Segment Tree"},
+#        "Fenwick / BIT":       {"Binary Indexed Tree"},
+#        "KMP / Z / Aho-Corasick": {"String Matching"},
+#        "Suffix structures":   {"Suffix Array"},
+#        "Tarjan's (SCC)":      {"Strongly Connected Component"},
+#        "Meet in the middle":  {"Meet in the Middle"},
+#        "Reservoir sampling":  {"Reservoir Sampling"},
+#        "Number theory":       {"Number Theory"},
+#        "Sweep line":          {"Line Sweep"},
+# See feedback_expansion_pull_scheduling memory (weekly generation drives pulls).
+
 
 # Solution-folder slug -> milestone category (so learned-pattern detection works
 # in a repo that stores solutions under category folders, e.g. cse-review).
